@@ -1,6 +1,21 @@
 # Resalloc HW
 
+---
+
 ## Overview
+
+### This Repo
+
+Consists of all you should need to run & test the solution:
+  - a CLI tool for leasing servers, `resalloc`
+  - a config file for `resalloc`
+  - a `docker-compose` file for mocking the problem space
+
+More detail on usage below
+
+### Problem & Solution
+
+**The idea of this problem is that you will use a cli tool on the host machine (`resalloc`) to affect the leasing of server nodes across a virtual network**
 
 This problem/solution consists of a few components:
 (This is the only repo you will need to run them all, but links are provided to their source for reference)
@@ -18,7 +33,7 @@ interesting detail that is aptly simulated with Docker for greater realism.
 
 Ie, the `resalloc` tool should be able to affect changes across a real network.
 
-## Environment & Assumptions
+### Environment & Assumptions
 
 Note: these instructions are specifically for an Ubuntu 14.04 machine, with assumptions:
   - 64-bit (check with `arch`)
@@ -26,9 +41,11 @@ Note: these instructions are specifically for an Ubuntu 14.04 machine, with assu
   - Linux kernel > `3.10`(check with `uname -a`)
     - **Reason:** Docker will not run on kernel < `3.10`
 
-## Getting Started
+---
 
-### Setup: Mock the problem space
+## Usage
+
+### Mock the problem space
 
 These steps would not be required of a "real" end user of the `resalloc` tool,
 (they would only need the `resalloc` binary) but are required here to mock the networking
@@ -50,7 +67,7 @@ git clone https://github.com/amp343/resalloc-hw.git && cd resalloc-hw
 docker-compose up -d
 ```
 
-### Initial state
+### Notes on initial state
 
 You should then see 6 containers running (confirm with `docker ps`):
   - `server{{ 1-5 }}` -- the leasable server resources
@@ -62,7 +79,7 @@ The initial state of the leasable servers is:
 after 3 minutes, at which point it becomes available
   - **Server 5** starts out with a fresh 2-hour lease to another user, and will not be available for leasing during that time.
 
-### The fun part -- start leasing!
+### Using the CLI tool `resalloc` to lease servers
 
 Now you can use the `resalloc` CLI tool to lease resources
 
@@ -95,7 +112,7 @@ If a server reports it is leased to this user, that means it is leased to you!
 
 ---
 
-# App implementation details
+## App implementation details
 
 ### `resalloc` (https://github.com/amp343/resalloc-cli)
 
@@ -131,11 +148,29 @@ a `fleet-server` consults the `fleet-acl` to learn about & report its status.
 
 ---
 
-# Notes
+## Notes
 
-## Focus of work
+### Focus of work
 
-## Future/omitted work
+What I wanted to focus on in this work was a well-rounded approach and solution to the problem.
+
+For instance:
+  - understanding the problem and what a correct solution should accomplish
+  - prioritizing work while not shortchanging the complexity of the problem
+  - choosing the right tools for the job, including going out of the box and using languages/approaches I've never used before
+  - writing tools in a variety of languages
+  - writing clean, testable, well-documented or self-documenting software
+  - wrangling with some networking
+  - creating the tooling in a distributable way; ie, minimizing the pain of bootstrapping/distribution
+  - rest api design considering multiple concerns:
+    - authentication
+    - resource serialization
+    - error handling
+    - semantic response codes
+  - focusing on the usability and user-friendliness of the main UI, that is, the `resalloc` cli tool
+    - giving robust user feedback, and helping users recover from failure cases
+
+### Future/omitted work
 
 Some things I would have liked to do with this problem, but couldn't due to time constraints:
 - `resalloc` should refer to `acl`'s container name, instead of the known Docker ip/port
@@ -153,7 +188,7 @@ Some things I would have liked to do with this problem, but couldn't due to time
   expiring leases upon receiving requests to the api. So, a stale lease could remain
   active beyond the 2 hour period if the `fleet-acl` api did not receive any additional requests
 
-## Future tests
+### Future tests
 
 All the apps should have tests to prove that each them work as expected in isolation. For a time-constrained problem I'm erring on the side of just getting it to work. But in real life, it's definitely something that would be needed.
 
