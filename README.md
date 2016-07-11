@@ -37,15 +37,18 @@ These steps would not be required of a "real" end user of the `resalloc` tool,
   - Install `docker-engine` (https://docs.docker.com/v1.8/installation/ubuntulinux/)
   - Install `docker-compose` (https://docs.docker.com/compose/install/)
   - Or, TLDR:
-    - `sudo apt-get update`
-    - `sudo apt-get install -y git curl wget libyaml-dev`
-    - `wget -qO- https://get.docker.com/ | sh`
-    - `sudo usermod -aG docker $(whoami)`
-    - `sudo su -`
-    - `curl -L https://github.com/docker/compose/releases/download/1.7.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose`
-    - `chmod +x /usr/local/bin/docker-compose`
-    - `git clone https://github.com/amp343/resalloc-hw.git && cd resalloc-hw`
-    - `docker-compose up -d`
+
+```
+sudo apt-get update
+sudo apt-get install -y git curl wget libyaml-dev
+wget -qO- https://get.docker.com/ | sh
+sudo usermod -aG docker $(whoami)
+sudo su -
+curl -L https://github.com/docker/compose/releases/download/1.7.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+git clone https://github.com/amp343/resalloc-hw.git && cd resalloc-hw
+docker-compose up -d
+```
 
 ### Initial state
 
