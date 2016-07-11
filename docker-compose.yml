@@ -1,0 +1,60 @@
+acl:
+  container_name: acl
+  image: amp343/resalloc-fleet-acl
+  ports:
+    - 81:3000
+
+server1:
+  container_name: server1
+  image: amp343/resalloc-fleet-server
+  ports:
+    - 82:80
+  links:
+    - acl
+  environment:
+    RESOURCE_NAME: server1
+    ACL_URI: http://acl:3000/resources/
+
+server2:
+  container_name: server2
+  image: amp343/resalloc-fleet-server
+  ports:
+    - 83:80
+  links:
+    - acl
+  environment:
+    RESOURCE_NAME: server2
+    ACL_URI: http://acl:3000/resources/
+
+server3:
+  container_name: server3
+  image: amp343/resalloc-fleet-server
+  ports:
+    - 84:80
+  links:
+    - acl
+  environment:
+    RESOURCE_NAME: server3
+    ACL_URI: http://acl:3000/resources/
+
+server4:
+  container_name: server4
+  image: amp343/resalloc-fleet-server
+  ports:
+    - 85:80
+  links:
+    - acl
+  environment:
+    RESOURCE_NAME: server4
+    ACL_URI: http://acl:3000/resources/
+
+server5:
+  container_name: server5
+  image: amp343/resalloc-fleet-server
+  ports:
+    - 86:80
+  links:
+    - acl
+  environment:
+    RESOURCE_NAME: server5
+    ACL_URI: http://acl:3000/resources/
