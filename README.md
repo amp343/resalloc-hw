@@ -20,7 +20,7 @@ Ie, the `resalloc` tool should be able to affect changes across a real network.
 
 ## Environment & Assumptions
 
-Note: these steps are specifically for an Ubuntu 14.04 machine, with assumptions:
+Note: these instructions are specifically for an Ubuntu 14.04 machine, with assumptions:
   - 64-bit (check with `arch`)
     - **Reason:** CLI tool `resalloc` is compiled per-OS and arch; this specific build is for `linux`/`64`
   - Linux kernel > `3.10`(check with `uname -a`)
