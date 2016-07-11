@@ -85,10 +85,10 @@ For instance, `./resalloc lease server1`, or `./resalloc unlease server3`
 
 **Usage Example**
 
-- `./resalloc lease server1` -- lease `server1`
-- `./resalloc leased` -- see that the acl reports you have leased `server1`
-- `docker ps` -- check the IP/port of the server you expect to have leased
-- `curl {{ that }}` or request it in a browser -- see that the server itself indicates it is leased to you
+- `./resalloc lease server1` (lease `server1`)
+- `./resalloc leased` (see that the acl reports you have leased `server1`)
+- `docker ps` (check the IP/port of the server you expect to have leased)
+- `curl {{ that }}` or request it in a browser (see that the server itself indicates it is leased to you)
 
 **Note:** the user that has been provisioned for this exercise is `you@email.com`
 If a server reports it is leased to this user, that means it is leased to you!
