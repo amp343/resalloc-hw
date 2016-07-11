@@ -53,7 +53,7 @@ docker-compose up -d
 ### Initial state
 
 You should then see 6 containers running (confirm with `docker ps`):
-  - `server{{1-5}}` -- the leasable server resources
+  - `server{{ 1-5 }}` -- the leasable server resources
   - `acl` -- the acl app that controls the leasing of servers
 
 The initial state of the leasable servers is:
@@ -69,8 +69,8 @@ Now you can use the `resalloc` CLI tool to lease resources
   - `./resalloc help` will display a help screen with available commands, but just to reiterate:
     - `./resalloc list` - list all server resources and their state
     - `./resalloc leased` - list any server resources leased by you
-    - `./resalloc lease {{serverName}}` - lease a server from the pool
-    - `./resalloc unlease {{serverName}}` - unlease a leased server
+    - `./resalloc lease {{ serverName }}` - lease a server from the pool
+    - `./resalloc unlease {{ serverName }}` - unlease a leased server
 
 When using `./resalloc lease` or `./resalloc unlease`, the target server should be referred to by its `name`; ie, one of:
   - `server1`
