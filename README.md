@@ -21,6 +21,7 @@ This problem/solution consists of a few components:
 **The mock problem space:**
   - 1 Docker container serving `fleet-acl` app (source: https://github.com/amp343/resalloc-fleet-acl) to act as the controller for server leasing
   - 5 Docker containers serving `fleet-server` app (source: https://github.com/amp343/resalloc-fleet-server) to simulate a fleet of leasable servers
+
 **The important part: The CLI tool**
   - 1 local (host machine) cli tool `resalloc` (source: https://github.com/amp343/resalloc-cli)
 
