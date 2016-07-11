@@ -1,7 +1,5 @@
 # Resalloc HW
 
----
-
 ## Overview
 
 ### This Repo
@@ -63,7 +61,7 @@ sudo usermod -aG docker $(whoami)
 sudo su -
 curl -L https://github.com/docker/compose/releases/download/1.7.1/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
-git clone https://github.com/amp343/resalloc-hw.git && cd resalloc-hw
+git clone https://github.com/amp343/resalloc-hw.git && chmod -R +x ./resalloc-hw && cd resalloc-hw
 docker-compose up -d
 ```
 
@@ -105,7 +103,7 @@ For instance, `./resalloc lease server1`, or `./resalloc unlease server3`
 - `./resalloc lease server1` (lease `server1`)
 - `./resalloc leased` (see that the acl reports you have leased `server1`)
 - `docker ps` (check the IP/port of the server you expect to have leased)
-- `curl {{ that }}` or request it in a browser (see that the server itself indicates it is leased to you)
+- `curl {{ that (ie, 0.0.0.0:82) }}` or request it in a browser (see that the server itself indicates it is leased to you)
 
 **Note:** the user that has been provisioned for this exercise is `you@email.com`
 If a server reports it is leased to this user, that means it is leased to you!
