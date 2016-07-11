@@ -1,4 +1,4 @@
-# Resalloc Homework
+# Resalloc HW
 
 ## Overview
 
@@ -11,7 +11,7 @@ This problem/solution consists of a few components:
 **The important part: The CLI tool**
   - 1 local (host machine) cli tool `resalloc` (source: https://github.com/amp343/resalloc-cli)
 
-{{ img }}
+<img width="735" alt="screen shot 2016-07-11 at 11 39 40 am" src="https://cloud.githubusercontent.com/assets/425365/16737477/8a0d924c-475f-11e6-8c45-840ac5c26010.png">
 
 I wanted to use Docker here because the networking aspect of the problem is an
 interesting detail that is aptly simulated with Docker for greater realism.
