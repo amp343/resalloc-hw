@@ -57,8 +57,10 @@ You should then see 6 containers running (confirm with `docker ps`):
   - `acl` -- the acl app that controls the leasing of servers
 
 **Servers 1-3** are unleased and available for leasing immediately.
+
 **Server 4** starts out leased to another user, but its lease is scheduled to expire
 after 3 minutes, at which point it becomes available
+
 **Server 5** starts out with a fresh 2-hour lease to another user, and will not be available for leasing during that time.
 
 ### The fun part -- start leasing!
